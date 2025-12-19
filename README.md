@@ -1,73 +1,38 @@
-# 🚚 Aviso de Feriados Municipais para Logística
+# 🚚 Aviso de Feriados Municipais
 
-## 📌 Descrição do Projeto
+## 📌 Sobre o projeto
 
-Este projeto tem como objetivo **auxiliar empresas de logística e transportadoras** a evitarem entregas em dias de **feriados municipais**, reduzindo custos, atrasos e retrabalho.
+Este projeto está em desenvolvimento e tem como objetivo ajudar empresas de logística e transportadoras a evitarem entregas em cidades onde há feriado municipal.
 
-O sistema identifica feriados municipais por cidade e **emite alertas antecipados**, permitindo que a empresa:
-- Reprograme entregas
-- Evite deslocamentos desnecessários
-- Melhore a eficiência logística
-- Reduza frustrações de motoristas e clientes
+A ideia é identificar feriados municipais por cidade e avisar antecipadamente, evitando que motoristas se desloquem até locais onde não será possível concluir as entregas.
 
 ---
 
-## 🎯 Problema que o Projeto Resolve
+## 🚧 Status do Projeto
 
-Muitas transportadoras enfrentam o seguinte problema:
-
-> O motorista chega à cidade para realizar a entrega, mas descobre que é **feriado municipal**, e a empresa ou comércio está fechado.
-
-Isso gera:
-- Atraso nas entregas
-- Custos extras de combustível
-- Reentregas
-- Insatisfação do cliente
-
-Este projeto foi criado exatamente para **evitar esse cenário**.
+🔧 Em desenvolvimento  
+Funcionalidades estão sendo implementadas gradualmente.
 
 ---
 
-## 🛠️ Funcionalidades
+## 🛠️ Tecnologias utilizadas (até o momento)
 
-- 📍 Consulta de feriados municipais por cidade
-- 📅 Identificação automática de datas de feriado
-- 🔔 Aviso prévio para empresas transportadoras
-- 📊 Organização das informações em tabelas (DataFrames)
-- 🔄 Possibilidade de integração com sistemas logísticos
-
-*(Novas funcionalidades podem ser adicionadas futuramente)*
+- Python
+- Pandas
+- Git e GitHub
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+## 🎯 Objetivo
 
-- **Python**
-- **Pandas** (manipulação de dados)
-- **Arquivos CSV / Excel** (base de feriados)
-- **Git & GitHub** (versionamento)
+Reduzir falhas operacionais na logística causadas por feriados municipais não previstos.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 👨‍💻 Autor
 
-aviso_feriados/
-│
-├── dados/
-│ └── feriados_municipais.csv
-│
-├── src/
-│ └── aviso_feriados.py
-│
-├── README.md
-└── requirements.txt
-
-
-## ▶️ Como Executar o Projeto
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/danielsabino-br/aviso_feriados.git
+Daniel Francisco Sabino Rocha  
+Estudante de Análise e Desenvolvimento de Sistemas
 
 
 
