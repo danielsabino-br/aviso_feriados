@@ -19,6 +19,17 @@ cursor.execute('''
 CREATE UNIQUE INDEX IF NOT EXISTS idx_cidade ON users (Cidade)
 ''')
 
+import sqlite3
+import os
+
+# Caminho absoluto do banco (importante para rodar em segundo plano)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "banco_dados.db")
+
+def conectar_banco():
+    return sqlite3.connect(DB_PATH)
+
+
 conn.commit()
 
 print("Bem-vindo ao sistema de cadastro de feriados municipais!")

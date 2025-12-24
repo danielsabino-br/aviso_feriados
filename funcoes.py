@@ -62,7 +62,11 @@ def excluir_feriado():
     if cursor.rowcount > 0:
         print("Cidade excluída com sucesso!")
     else:
-        print("Nenhuma cidade encontrada para exclusão.")   
+        print("Nenhuma cidade encontrada para exclusão.")
+
+def notificar(mensagem):
+    print(mensagem)
+   
 
 
       

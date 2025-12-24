@@ -6,6 +6,11 @@ from plyer import notification
 #Criando a conexão com o banco de dados SQLite
 conn = sqlite3.connect("banco_dados.db")
 
+
+def notificar(mensagem):
+    print(mensagem)
+
+    
 #Le os dados do banco de dados
 df = pd.read_sql_query("SELECT Cidade, feriado_municipal FROM users", conn)
 
@@ -21,6 +26,9 @@ df["Dias para o feriado"] = (df["feriado_municipal"] - pd.Timestamp(hoje)).dt.da
 
 #Filtra os feriados 3 dias antes do vencimento
 avisos = df[df["Dias para o feriado"] == 3]
+
+
+
 
 #Envia notificações para cada feriado encontrado
 

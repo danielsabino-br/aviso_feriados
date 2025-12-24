@@ -1,28 +1,33 @@
-import sqlite3
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
+from banco_dados import conectar_banco
+from notification import notificar
 
-def verificar_feriado():
-    conn = sqlite3.connect('banco_dados.db')
+def verificar_feriados_em_3_dias():
+    conn = conectar_banco()   
     cursor = conn.cursor()
 
-    hoje = datetime.now().strftime("%Y-%m-%d")
+    hoje = datetime.now().date()
+    data_alvo = hoje + timedelta(days=3)
 
     cursor.execute("""
-        SELECT Cidade FROM users
+        SELECT Cidade, feriado_municipal
+        FROM users
         WHERE feriado_municipal = ?
-    """, (hoje,))
+    """, (data_alvo.strftime("%Y-%m-%d"),))
 
-    cidades = cursor.fetchall()
+    resultados = cursor.fetchall()
     conn.close()
 
-    if cidades:
-        for cidade in cidades:
-            print(f"🎉 Hoje é feriado municipal em {cidade[0]}!")
+    if resultados:
+        for cidade, data in resultados:
+            notificar(
+                f"📅 Atenção: Faltam 3 dias para o feriado municipal em {cidade} ({data})"
+            )
     else:
-        print("Hoje não há feriados municipais cadastrados.")
+        print("Nenhum feriado municipal em 3 dias.")
 
-# 🔁 Loop em segundo plano
+# 🔁 Rodando em segundo plano
 while True:
-    verificar_feriado()
-    time.sleep(60 * 60)  # verifica a cada 1 hora
+    verificar_feriados_em_3_dias()
+    time.sleep(60 * 60 * 6)  # verifica a cada 6 horas
