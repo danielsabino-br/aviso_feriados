@@ -13,12 +13,22 @@ def adicionar_cidade():
     feriado = input("Digite a data do feriado municipal (AAAA-MM-DD): ")
 
     try:
+        #Verificar se a cidade já esta cadastrada
+        cursor.execute("SELECT 1 FROM users WHERE Cidade = ?", (cidade,))
+        resultado = cursor.fetchone()
+
+        if resultado:
+            print("Cidade já cadastrada no sistema.")
+            return
+        
+        #Isere somante se não existir
         cursor.execute("INSERT INTO users (Cidade, feriado_municipal) VALUES (?, ?)", (cidade, feriado))
         conn.commit()
-        
-        print("Cidade e feriado adicionados com sucesso!")
+        print("Cidade e feriado municipal adicionados com sucesso!")
+
     except Exception as e:
         print(f"Erro ao adicionar cidade e feriado: {e}")
+           
 
 
 def consultar_feriados():

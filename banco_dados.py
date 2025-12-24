@@ -14,6 +14,11 @@ CREATE TABLE IF NOT EXISTS users (
     feriado_municipal DATE NOT NULL
 )       
 ''')
+
+cursor.execute('''
+CREATE UNIQUE INDEX IF NOT EXISTS idx_cidade ON users (Cidade)
+''')
+
 conn.commit()
 
 print("Bem-vindo ao sistema de cadastro de feriados municipais!")
