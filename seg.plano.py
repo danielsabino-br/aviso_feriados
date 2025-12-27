@@ -35,4 +35,4 @@ def verificar_feriados_em_3_dias():
 # 🔁 Rodando em segundo plano
 while True:
     verificar_feriados_em_3_dias()
-    time.sleep(60 * 60 * 6)  # verifica a cada 6 horas
+    time.sleep(60 * 60 * 1)  # verifica a cada 1 hora
