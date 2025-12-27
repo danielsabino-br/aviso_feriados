@@ -64,8 +64,7 @@ def excluir_feriado():
     else:
         print("Nenhuma cidade encontrada para exclusão.")
 
-def notificar(mensagem):
-    print(mensagem)
+
    
 
 
