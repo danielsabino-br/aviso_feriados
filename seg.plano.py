@@ -1,7 +1,12 @@
 import time
+
+time.sleep(30)
+
 from datetime import datetime, timedelta
 from banco_dados import conectar_banco
 from notification import notificar
+
+
 
 def verificar_feriados_em_3_dias():
     conn = conectar_banco()   
