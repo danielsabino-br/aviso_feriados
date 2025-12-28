@@ -6,13 +6,14 @@ from plyer import notification
 #Criando a conexão com o banco de dados SQLite
 conn = sqlite3.connect("banco_dados.db")
 
+#Lendo os feriados municipais do banco de dados
 df = pd.read_sql_query(
     "SELECT Cidade, feriado_municipal FROM users",
     conn
 )
 
 conn.close()
-
+#Calculando os dias restantes para cada feriado
 hoje = date.today()
 
 df["feriado_municipal"] = pd.to_datetime(df["feriado_municipal"])
@@ -20,8 +21,8 @@ df["feriado_municipal"] = pd.to_datetime(df["feriado_municipal"])
 df["Dias para o feriado"] = (
     df["feriado_municipal"] - pd.Timestamp(hoje)
 ).dt.days
-
-avisos = df[(df["Dias para o feriado"] > 0) & (df["Dias para o feriado"] <= 3)]
+#definindo o intervalo para notificação 
+avisos = df[(df["Dias para o feriado"] > 0) & (df["Dias para o feriado"] <= 5)]
 
 for _, linha in avisos.iterrows():
     notification.notify(

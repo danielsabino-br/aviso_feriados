@@ -8,12 +8,12 @@ from notification import notificar
 
 
 
-def verificar_feriados_em_3_dias():
+def verificar_feriados_em_5_dias():
     conn = conectar_banco()   
     cursor = conn.cursor()
 
     hoje = datetime.now().date()
-    data_alvo = hoje + timedelta(days=3)
+    data_alvo = hoje + timedelta(days=5)
 
     cursor.execute("""
         SELECT Cidade, feriado_municipal
@@ -34,5 +34,5 @@ def verificar_feriados_em_3_dias():
 
 # 🔁 Rodando em segundo plano
 while True:
-    verificar_feriados_em_3_dias()
+    verificar_feriados_em_5_dias()
     time.sleep(60 * 60 * 1)  # verifica a cada 1 hora

@@ -6,7 +6,7 @@ from datetime import date
 conn = sqlite3.connect("banco_dados.db")
 cursor = conn.cursor()
 
- #Funções para manipulação do banco de dados
+ #Funções para adicionar dados ao banco de dados
 
 def adicionar_cidade():
     cidade = input("Digite o nome da cidade: ")
@@ -30,29 +30,32 @@ def adicionar_cidade():
         print(f"Erro ao adicionar cidade e feriado: {e}")
            
 
-
+#Função para consultar feriados futuros
 def consultar_feriados():
     hoje = date.today()
 
+    #query para selecionar feriados futuros
     query = """
     SELECT Cidade, feriado_municipal
     FROM users
     WHERE feriado_municipal >= DATE('now')
     ORDER BY feriado_municipal"""
 
+    #dataframe com os resultados
     df = pd.read_sql_query(query, conn)
         
     if df.empty:
             print("Nenhum feriado municipal encontrado a partir de hoje.")
             return
     df["feriado_municipal"] = pd.to_datetime(df["feriado_municipal"])
-
+ 
     dias_para_feriado = "Dias para o feriado"
     df[dias_para_feriado] = (df["feriado_municipal"] - pd.Timestamp(hoje)).dt.days
 
     print("\nFeriados futuros:")
-    print(df)
-
+    print(df) 
+    
+#Função para excluir feriado municipal de uma cidade
 def excluir_feriado():
     cidade = input("Digite o nome da cidade cujo feriado deseja excluir: ")
 
