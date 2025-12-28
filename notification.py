@@ -6,41 +6,38 @@ from plyer import notification
 #Criando a conexão com o banco de dados SQLite
 conn = sqlite3.connect("banco_dados.db")
 
-
-def notificar(mensagem):
-    print(mensagem)
-
-    
-#Le os dados do banco de dados
-df = pd.read_sql_query("SELECT Cidade, feriado_municipal FROM users", conn)
+df = pd.read_sql_query(
+    "SELECT Cidade, feriado_municipal FROM users",
+    conn
+)
 
 conn.close()
-#Obtém a data atual
+
 hoje = date.today()
 
-#converte para data
-df["feriado_municipal"] = pd.to_datetime(df["feriado_municipal"], format="mixed")
+df["feriado_municipal"] = pd.to_datetime(df["feriado_municipal"])
 
-#Dias restantes para o feriado
-df["Dias para o feriado"] = (df["feriado_municipal"] - pd.Timestamp(hoje)).dt.days
+df["Dias para o feriado"] = (
+    df["feriado_municipal"] - pd.Timestamp(hoje)
+).dt.days
 
-#Filtra os feriados 3 dias antes do vencimento
-avisos = df[df["Dias para o feriado"] == 3]
-
-
-
-
-#Envia notificações para cada feriado encontrado
+avisos = df[(df["Dias para o feriado"] > 0) & (df["Dias para o feriado"] <= 3)]
 
 for _, linha in avisos.iterrows():
     notification.notify(
-        title = "Alerta de Feriado Municipal",
-        message = f"Em 3 dias será feriado em {linha['Cidade']} no dia {linha['feriado_municipal'].date()}!",
-        timeout = 10
+        title="Alerta de Feriado Municipal",
+        message=(
+            f"Faltam {linha['Dias para o feriado']} dias "
+            f"para o feriado em {linha['Cidade']} "
+            f"({linha['feriado_municipal'].date()})"
+        ),
+        timeout=10
     )
+print("Notificações de feriados municipais enviadas (se houver).")
 
 
-print("Notificações de feriados municipais enviadas (se houver feriados em 3 dias).")
+
+
 
 
 
