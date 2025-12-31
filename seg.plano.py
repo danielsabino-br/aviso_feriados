@@ -1,38 +1,18 @@
 import time
+from datetime import datetime
+from funcoes import verificar_feriados_em_5_dias
 
-time.sleep(30)
+time.sleep(30)  # aguarda o Windows iniciar tudo
 
-from datetime import datetime, timedelta
-from banco_dados import conectar_banco
-from notification import notificar
-
-
-
-def verificar_feriados_em_5_dias():
-    conn = conectar_banco()   
-    cursor = conn.cursor()
-
-    hoje = datetime.now().date()
-    data_alvo = hoje + timedelta(days=5)
-
-    cursor.execute("""
-        SELECT Cidade, feriado_municipal
-        FROM users
-        WHERE feriado_municipal = ?
-    """, (data_alvo.strftime("%Y-%m-%d"),))
-
-    resultados = cursor.fetchall()
-    conn.close()
-
-    if resultados:
-        for cidade, data in resultados:
-            notificar(
-                f"📅 Atenção: Faltam 3 dias para o feriado municipal em {cidade} ({data})"
-            )
-    else:
-        print("Nenhum feriado municipal em 3 dias.")
-
-# 🔁 Rodando em segundo plano
 while True:
-    verificar_feriados_em_5_dias()
-    time.sleep(60 * 60 * 1)  # verifica a cada 1 hora
+    try:
+        verificar_feriados_em_5_dias()
+
+        with open("log_execucao.txt", "a", encoding="utf-8") as f:
+            f.write(f"Execução em {datetime.now()}\n")
+
+    except Exception as e:
+        with open("log_erro.txt", "a", encoding="utf-8") as f:
+            f.write(f"Erro em {datetime.now()}: {e}\n")
+
+    time.sleep(60 * 60 * 1)  # 1 hora
