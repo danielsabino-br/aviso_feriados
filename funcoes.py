@@ -9,8 +9,14 @@ def adicionar_cidade():
     cursor = conn.cursor()
 
     cidade = input("Digite o nome da cidade: ")
-    feriado = input("Digite a data do feriado municipal (AAAA-MM-DD): ")
+    data_input = input("Digite a data do feriado municipal (DD-MM-AAAA): ")
 
+    try:
+        feriado = datetime.strptime(data_input, "%d-%m-%Y").strftime("%Y-%m-%d")
+    except ValueError:
+        print("Data inválida. Use o formato DD-MM-AAAA.")
+        conn.close()
+        return
     try:
         cursor.execute("SELECT 1 FROM users WHERE Cidade = ?", (cidade,))
         if cursor.fetchone():
@@ -85,7 +91,8 @@ def verificar_feriados_em_5_dias():
         SELECT Cidade, feriado_municipal
         FROM users
         WHERE feriado_municipal = ?
-    """, (data_alvo.strftime("%Y-%m-%d"),))
+    """, (data_alvo.strftime("%Y-%m-%d"),)
+)
 
     resultados = cursor.fetchall()
     conn.close()
