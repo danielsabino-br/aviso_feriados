@@ -36,7 +36,7 @@ Este projeto resolve esse problema de forma simples e automatizada.
 
 O sistema verifica o banco de dados periodicamente e dispara notificações quando:
 
-* A data do feriado municipal estiver entre **hoje e hoje + 5 dias**
+* A data do feriado municipal estiver entre **hoje + 5 dias**
 
 Exemplo:
 
