@@ -28,3 +28,5 @@ Execução em 2026-01-04 08:46:32.189441
 [OK] Execução realizada em 2026-01-04 09:00:48.021876
 [DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
 [OK] Execução realizada em 2026-01-04 09:10:01.772608
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 09:30:19.512223
