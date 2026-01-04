@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 from banco_dados import conectar_banco
 from notification import notificar
-
+import os
 
 def adicionar_cidade():
     conn = conectar_banco()
@@ -85,22 +85,34 @@ def verificar_feriados_em_5_dias():
     cursor = conn.cursor()
 
     hoje = datetime.now().date()
-    data_alvo = hoje + timedelta(days=5)
+    data_final = hoje + timedelta(days=5)
 
     cursor.execute("""
         SELECT Cidade, feriado_municipal
         FROM users
-        WHERE feriado_municipal = ?
-    """, (data_alvo.strftime("%Y-%m-%d"),)
-)
+        WHERE feriado_municipal BETWEEN ? AND ?
+        ORDER BY feriado_municipal
+    """, (
+        hoje.strftime("%Y-%m-%d"),
+        data_final.strftime("%Y-%m-%d") ))
 
     resultados = cursor.fetchall()
     conn.close()
 
-    for cidade, data in resultados:
-        notificar(
-            f"📅 Atenção: Faltam 5 dias para o feriado municipal em {cidade} ({data})"
+    # Log detalhado (diagnóstico real)
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    log_path = os.path.join(BASE_DIR, "log_execucao.txt")
+
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(
+            f"[DEBUG] Hoje: {hoje} | Até: {data_final} | Feriados encontrados: {len(resultados)}\n"
         )
 
+    for cidade, data in resultados:
+        dias_restantes = (datetime.strptime(data, "%Y-%m-%d").date() - hoje).days
 
-
+        notificar(
+            f"📅 Feriado em {cidade}\n"
+            f"Data: {data}\n"
+            f"Faltam {dias_restantes} dia(s)"
+        )

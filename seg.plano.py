@@ -1,18 +1,28 @@
 import time
+import os
 from datetime import datetime
 from funcoes import verificar_feriados_em_5_dias
 
-time.sleep(30)  # aguarda o Windows iniciar tudo
+# Diretório base do projeto (importante para execução em segundo plano)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+LOG_EXECUCAO = os.path.join(BASE_DIR, "log_execucao.txt")
+LOG_ERRO = os.path.join(BASE_DIR, "log_erro.txt")
+
+# Aguarda o Windows inicializar completamente
+time.sleep(30)
 
 while True:
     try:
         verificar_feriados_em_5_dias()
 
-        with open("log_execucao.txt", "a", encoding="utf-8") as f:
-            f.write(f"Execução em {datetime.now()}\n")
+        with open(LOG_EXECUCAO, "a", encoding="utf-8") as f:
+            f.write(f"[OK] Execução realizada em {datetime.now()}\n")
 
     except Exception as e:
-        with open("log_erro.txt", "a", encoding="utf-8") as f:
-            f.write(f"Erro em {datetime.now()}: {e}\n")
+        with open(LOG_ERRO, "a", encoding="utf-8") as f:
+            f.write(f"[ERRO] {datetime.now()} - {repr(e)}\n")
 
-    time.sleep(60 * 60 * 1)  # 1 hora
+    # Aguarda 1 hora
+    time.sleep(60 * 60)
+
