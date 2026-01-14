@@ -30,3 +30,53 @@ Execução em 2026-01-04 08:46:32.189441
 [OK] Execução realizada em 2026-01-04 09:10:01.772608
 [DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
 [OK] Execução realizada em 2026-01-04 09:30:19.512223
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 10:30:19.517288
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 11:30:19.520463
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 12:30:19.525152
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 13:30:19.545713
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 14:30:19.548598
+[DEBUG] Hoje: 2026-01-04 | Até: 2026-01-09 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-04 15:30:19.552826
+[DEBUG] Hoje: 2026-01-05 | Até: 2026-01-10 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-05 18:17:31.032298
+[DEBUG] Hoje: 2026-01-05 | Até: 2026-01-10 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-05 19:17:31.037978
+[DEBUG] Hoje: 2026-01-05 | Até: 2026-01-10 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-05 20:17:31.043630
+[DEBUG] Hoje: 2026-01-07 | Até: 2026-01-12 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-07 19:33:03.985672
+[DEBUG] Hoje: 2026-01-08 | Até: 2026-01-13 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-08 17:50:55.986026
+[DEBUG] Hoje: 2026-01-08 | Até: 2026-01-13 | Feriados encontrados: 2
+[OK] Execução realizada em 2026-01-08 18:50:55.991541
+[DEBUG] Hoje: 2026-01-09 | Até: 2026-01-14 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-09 19:15:50.337252
+[DEBUG] Hoje: 2026-01-09 | Até: 2026-01-14 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-09 20:15:50.350231
+[DEBUG] Hoje: 2026-01-09 | Até: 2026-01-14 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-09 21:15:50.356626
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 06:59:34.781317
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 09:09:16.136360
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 10:09:16.143892
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 19:58:57.130682
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 20:58:57.136699
+[DEBUG] Hoje: 2026-01-10 | Até: 2026-01-15 | Feriados encontrados: 1
+[OK] Execução realizada em 2026-01-10 21:58:57.142169
+[DEBUG] Hoje: 2026-01-11 | Até: 2026-01-16 | Feriados encontrados: 0
+[OK] Execução realizada em 2026-01-11 11:05:02.369500
+[DEBUG] Hoje: 2026-01-11 | Até: 2026-01-16 | Feriados encontrados: 0
+[OK] Execução realizada em 2026-01-11 12:05:02.373360
+[DEBUG] Hoje: 2026-01-11 | Até: 2026-01-16 | Feriados encontrados: 0
+[OK] Execução realizada em 2026-01-11 13:05:02.377239
+[DEBUG] Hoje: 2026-01-14 | Até: 2026-01-19 | Feriados encontrados: 0
+[OK] Execução realizada em 2026-01-14 18:51:34.943287
